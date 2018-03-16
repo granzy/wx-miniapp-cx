@@ -1,0 +1,154 @@
+<!--pages/Insurance/Insurance.wxml-->
+<view class="container page">
+  <image class='head-image' src='../../image/company/1.png'></image>
+  <view class="page__bd">
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">直接续保？</view>
+        <view class="weui-cell__ft">
+          <switch checked bindchange='directChange' />
+        </view>
+      </view>
+    </view>
+
+    <block wx:if="{{!direct}}">
+      <view class='selfui-list-title'>商业险</view>
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>机动车损失险</view>
+          <view class='selfui-list-item-left-desc'>用于赔付自己的车辆损失</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <switch checked bindchange='jdcssxChange' />
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>第三者责任险</view>
+          <view class='selfui-list-item-left-desc'>用于赔付对他人造成的财产损失</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindDszzrxChange" value="{{dszzrxIndex}}" range="{{dszzrxItems}}" range-key='value'>
+              <view class="weui-select weui-select_in-select-after">{{dszzrxItems[dszzrxIndex].value}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>车上人员责任险（司机）</view>
+          <view class='selfui-list-item-left-desc'>用于对司机造成的人身伤害</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindCsryzrxsjChange" value="{{csryzrxsjIndex}}" range="{{csryzrxsjItems}}" range-key='value'>
+              <view class="weui-select weui-select_in-select-after">{{csryzrxsjItems[csryzrxsjIndex].value}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>车上人员责任险（乘客）</view>
+          <view class='selfui-list-item-left-desc'>用于对车内乘客造成的人身伤害</view>
+        </view>
+        <view class='selfui-list-item-right'>
+           <view class="weui-cell__bd">
+            <picker bindchange="bindCsryzrxckChange" value="{{csryzrxckIndex}}" range="{{csryzrxckItems}}" range-key='value'>
+              <view class="weui-select weui-select_in-select-after">{{csryzrxckItems[csryzrxckIndex].value}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>玻璃单独破碎险</view>
+          <view class='selfui-list-item-left-desc'>用于赔付被保车辆只有挡风玻璃和车窗玻璃（不包括车灯、车镜玻璃）出现破损的损失</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindBlddpsxChange" value="{{blddpsxIndex}}" range="{{blddpsxItems}}" range-key='value'>
+              <view class="weui-select weui-select_in-select-after">{{blddpsxItems[blddpsxIndex].value}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>机动车盗抢险</view>
+          <view class='selfui-list-item-left-desc'>用于赔付车辆被盗损失</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <switch bindchange='jdcdqxChange' />
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>自然损失险</view>
+          <view class='selfui-list-item-left-desc'>用于赔付车的自身原因起火造成车辆本身的损失</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <switch  bindchange='zrsxxChange' />
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>车身划痕损失险</view>
+          <view class='selfui-list-item-left-desc'>用于赔付他人恶意行为造成的车辆车身认为划痕</view>
+        </view>
+        <view class='selfui-list-item-right'>
+           <view class="weui-cell__bd">
+            <picker bindchange="bindCshhsxxChange" value="{{cshhsxxIndex}}" range="{{cshhsxxItems}}" range-key='value'>
+              <view class="weui-select weui-select_in-select-after">{{cshhsxxItems[cshhsxxIndex].value}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>发动机特别损失险（涉水险）</view>
+          <view class='selfui-list-item-left-desc'>用于赔付因水淹或涉水行驶造成发动机损坏的费用</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <switch bindchange='fdjtbssxChange' />
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>不计免赔险</view>
+          <view class='selfui-list-item-left-desc'>事故发生后自己不再承担损失</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <switch checked bindchange='bjmpxChange' />
+        </view>
+      </view>
+
+      <view class='selfui-list-item'>
+        <view class='selfui-list-item-left'>
+          <view class='selfui-list-item-left-title'>无法找到第三方特约险</view>
+          <view class='selfui-list-item-left-desc'>发生事故后如果找不到另一责任方，未投保此险种需自行承担30%绝对免赔额，投保后该部分由保险公司全部承担</view>
+        </view>
+        <view class='selfui-list-item-right'>
+          <switch bindchange='wfzddsftyxChange' />
+        </view>
+      </view>
+
+    </block>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" data-url='/pages/msg/msg' bindtap="navigateToMsg">获取报价</button>
+    </view>
+
+  </view>
+</view>

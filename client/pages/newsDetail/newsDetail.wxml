@@ -1,0 +1,18 @@
+<!--pages/newsDetail/newsDetail.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class='page__bd__title'>
+      <view class="page__title">{{news[0].title}}</view>
+      <view class="page__desc">发布时间:{{news[0].createdate}}</view>
+    </view>
+    <view class="weui-article">
+      <view class="weui-article__section">
+        <view class="weui-article__section">
+          <view class="weui-article__p">
+          <text space="nbsp" decode='true'>{{news[0].content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

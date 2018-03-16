@@ -1,0 +1,18 @@
+<!--pages/msg/msg.wxml-->
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="success" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">操作成功</view>
+            <view class="weui-msg__desc">您的报价已提交系统，客服人员会尽快反馈报价方案给您，可通过‘我的询价’查看进度，也可通过‘客服报价’跟客服人员及时联系！</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" type="primary" data-url='/pages/index/index' bindtap="switchToTab" >返回首页</button>
+                <button data-url='/pages/myquote/myquote' bindtap='navigateToMyQuote' class="weui-btn" type="default">我的询价</button>
+            </view>
+        </view>
+    </view>
+</view>

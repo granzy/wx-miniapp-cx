@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view class='page'>
+  <import src="../common/circle/circle.wxml" />
+  <navigator hover-class='none' url='/pages/quote/quote'>
+    <view class='search-bar'>
+      <view class='search-radius btn-opacity'>
+        <icon type='search' size='14'></icon>
+        <text>车险询价</text>
+      </view>
+    </view>
+  </navigator>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='kind-container'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/quote/quote'>
+      <template is="circle" data="{{iconClass:'fa fa-car fa-lg',title:'车险询价'}}" />
+    </navigator>
+
+    <button class='contactBtn' hover-class='none' bindtap='makePhoneCall'>
+      <template is="circle" data="{{iconClass:'fa fa-phone-square fa-lg',title:'电话车险'}}" />
+    </button>
+    <button open-type='contact' class='contactBtn' hover-class='none'>
+          <template is="circle" data="{{iconClass:'fa fa-comments fa-lg',title:'在线客服'}}" />
+    </button>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/myquote/myquote'>
+      <template is="circle" data="{{iconClass:'fa fa-address-card-o fa-lg',title:'我的询价'}}" />
+    </navigator>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">保险快讯</view>
+      <view class="weui-panel__bd">
+        <block wx:for="{{newsList}}" wx:key="item.id">
+          <navigator url="/pages/newsDetail/newsDetail?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.previewimage}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{item.title}}</view>
+              <view class="weui-media-box__desc">{{item.content}}</view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+      <view class="weui-panel__ft">
+        <view class="weui-cell weui-cell_access weui-cell_link" data-url='/pages/newslist/newslist' bindtap="navigateToNewsList" >
+          <view class="weui-cell__bd">查看更多</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">支持以下平台投保</view>
+      <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+        <view class="scroll-view-item_H">
+          <image src='../../image/company/picc.png'></image>
+        </view>
+        <view class="scroll-view-item_H">
+          <image src='../../image/company/cpic.png'></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

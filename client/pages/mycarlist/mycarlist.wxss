@@ -1,0 +1,20 @@
+/* pages/mycarlist/mycarlist.wxss */
+.weui-form-preview{
+    margin-bottom: 15px;
+    margin-top:15px;
+}
+
+.my_delete_btn{
+  background-color: white;
+  color: red;
+}
+
+.placeholder{
+    margin: 5px;
+    padding: 0 10px;
+    text-align: center;
+    background-color: #EBEBEB;
+    height: 2.3em;
+    line-height: 2.3em;
+    color: green;
+}

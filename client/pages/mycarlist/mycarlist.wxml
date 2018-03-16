@@ -1,0 +1,40 @@
+<view class="page">
+  <template name="carTemp">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">身份证号码</view>
+          <view class="weui-form-preview__value">{{idcardno}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">车牌号码</view>
+          <view class="weui-form-preview__value">{{carno}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">手机号</view>
+          <view class="weui-form-preview__value">{{phoneno}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <button bindtap='deleteCarInfo' data-id="{{id}}" class="weui-form-preview__btn weui-form-preview__btn_primary my_delete_btn">删除</button>
+        <navigator url="/pages/quote/quote?id={{id}}&idcardno={{idcardno}}&carno={{carno}}&phoneno={{phoneno}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">编辑</navigator>
+      </view>
+    </view>
+  </template>
+
+  <view class="page__bd">
+
+    <block wx:for="{{carList}}" wx:key="{{item.id}}">
+      <template is="carTemp" data="{{...item}}" />
+    </block>
+
+  </view>
+
+  <view wx:if="{{carList.length == 0}}" class="page__bd page__bd_spacing">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">~暂无车辆信息~</view>
+      </view>
+    </view>
+  </view>
+</view>

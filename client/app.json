@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/quote/quote",
+    "pages/Insurance/Insurance",
+    "pages/msg/msg",
+    "pages/userInfo/userInfo",
+    "pages/newslist/newslist",
+    "pages/newsDetail/newsDetail",
+    "pages/myquote/myquote",
+    "pages/mycarlist/mycarlist",
+    "pages/ci/ci"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#18a698",
+    "navigationBarTitleText": "车险分期",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#18a698",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/icon_component.png",
+        "selectedIconPath": "image/icon_component_HL.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/userInfo/userInfo",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

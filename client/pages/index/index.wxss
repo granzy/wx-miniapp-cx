@@ -1,0 +1,63 @@
+/**index.wxss**/
+@import "../common/circle/circle.wxss";
+
+
+.slide-image {
+  width: 100%;
+  height: 300rpx;
+}
+
+/**navigat bar**/
+
+.search-bar {
+  padding: 10rpx 20rpx;
+  background-color: #18a698;
+}
+
+.search-bar .search-radius {
+  background-color: #fff;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  color: #888;
+  padding: 0.3em 0;
+}
+
+.search-bar .search-radius text {
+  margin-left: 0.5em;
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+}
+
+.scroll-view-item {
+  height: 150rpx;
+}
+
+.scroll-view-item_H {
+  display: inline-block;
+  width: 40%;
+  height: 150rpx;
+  text-align: center;
+}
+
+.scroll-view-item_H image {
+  height: 100rpx;
+  width: 250rpx;
+  margin-top: 20rpx;
+}
+
+.contactBtn {
+   border: none;
+   border-radius: 0;
+   padding:0;
+   margin:0;
+   line-height: normal;
+}
+
+.contactBtn::after{
+  border: none;
+}

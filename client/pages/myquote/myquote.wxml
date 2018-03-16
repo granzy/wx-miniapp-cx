@@ -1,0 +1,145 @@
+<!--pages/myquote/myquote.wxml-->
+<view class="page">
+
+  <template name="wait-for-quote">
+    <view class="weui-form-preview" wx:if="{{direct == 'true'}}">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">车牌号码</view>
+          <view class="weui-form-preview__value_in-hd">{{carno}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">询价时间</view>
+          <view class="weui-form-preview__value">{{createdate}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">直接续保</view>
+          <view class="weui-form-preview__value">
+            <icon type="success_no_circle" size="23"></icon>
+          </view>
+        </view>
+      </view>
+      <view class="weui-form-preview__hd border-top-1" wx:if="{{price && price != ''}}">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">最新报价</view>
+          <view class="weui-form-preview__value_in-hd">{{price}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-form-preview" wx:if="{{direct == 'false'}}">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">车牌号码</view>
+          <view class="weui-form-preview__value_in-hd">{{carno}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">询价时间</view>
+          <view class="weui-form-preview__value">{{createdate}}</view>
+        </view>
+        <view class="weui-form-preview__item" wx:if="{{item.jdcssx == 'true'}}">
+          <view class="weui-form-preview__label">机动车损失险</view>
+          <view class="weui-form-preview__value">
+            <icon type="success_no_circle" size="23"></icon>
+          </view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">第三者责任险</view>
+          <view class="weui-form-preview__value">{{dszzrx}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">车上人员责任险(司机)</view>
+          <view class="weui-form-preview__value">{{csryzrxsj}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">车上人员责任险(乘客)</view>
+          <view class="weui-form-preview__value">{{csryzrxck}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">玻璃单独破碎险</view>
+          <view class="weui-form-preview__value">{{blddpsx}}</view>
+        </view>
+        <view class="weui-form-preview__item" wx:if="{{jdcdqx == 'true'}}">
+          <view class="weui-form-preview__label">机动车盗抢险</view>
+          <view class="weui-form-preview__value">
+            <icon type="success_no_circle" size="23"></icon>
+          </view>
+        </view>
+        <view class="weui-form-preview__item" wx:if="{{zrsxx == 'true'}}">
+          <view class="weui-form-preview__label">自然损失险</view>
+          <view class="weui-form-preview__value">
+            <icon type="success_no_circle" size="23"></icon>
+          </view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">车身划痕险</view>
+          <view class="weui-form-preview__value">{{cshhsxx}}</view>
+        </view>
+        <view class="weui-form-preview__item" wx:if="{{fdjtbssx == 'true'}}">
+          <view class="weui-form-preview__label">发动机特别损失险（涉水险）</view>
+          <view class="weui-form-preview__value">
+            <icon type="success_no_circle" size="23"></icon>
+          </view>
+        </view>
+        <view class="weui-form-preview__item" wx:if="{{bjmpx == 'true'}}">
+          <view class="weui-form-preview__label">不计免赔险</view>
+          <view class="weui-form-preview__value">
+            <icon type="success_no_circle" size="23"></icon>
+          </view>
+        </view>
+        <view class="weui-form-preview__item" wx:if="{{wfzddsftyx == 'true'}}">
+          <view class="weui-form-preview__label">无法找到第三方特约险</view>
+          <view class="weui-form-preview__value">
+            <icon type="success_no_circle" size="23"></icon>
+          </view>
+        </view>
+      </view>
+      <view class="weui-form-preview__hd border-top-1" wx:if="{{price && price != ''}}">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">最新报价</view>
+          <view class="weui-form-preview__value_in-hd">￥{{price}}</view>
+        </view>
+      </view>
+    </view>
+  </template>
+
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+          <block wx:for="{{insuranceInfo}}" wx:key="item.id">
+            <view wx:if="{{item.statusCode == '0'}}">
+              <template is="wait-for-quote" data="{{...item}}" />
+            </view>
+          </block>
+
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <block wx:for="{{insuranceInfo}}" wx:key="item.id">
+            <view wx:if="{{item.statusCode == '1'}}">
+              <template is="wait-for-quote" data="{{...item}}" />
+            </view>
+          </block>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <block wx:for="{{insuranceInfo}}" wx:key="item.id">
+            <template is="wait-for-quote" data="{{...item}}" />
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

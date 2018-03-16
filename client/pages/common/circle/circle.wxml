@@ -1,0 +1,9 @@
+<template name="circle">
+  <view class="circle-container btn-bg">
+    <view class="circle-border">
+      <i class='{{iconClass}}'></i>
+      <text class="circle-date">{{date}}</text>
+    </view>
+    <text class="title">{{title}}</text>
+  </view>
+</template>

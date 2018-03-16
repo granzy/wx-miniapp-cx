@@ -1,0 +1,58 @@
+<!--logs.wxml-->
+<view class="container page">
+  <image class='head-image' src='../../image/company/2.png'></image>
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+
+     <!-- 身份证识别 -->
+    <view class="uploader">      
+        <view class="uploader-container" wx:if="{{imgUrl}}">
+            <image
+                class="uploader-image"
+                src="{{imgUrl}}"
+                mode="aspectFit"
+                bindtap="previewImg"
+            ></image>            
+        </view>
+    </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">身份证号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type='idcard' value="{{idCardNo}}" maxlength='18' placeholder="请输入身份证号码" bindinput='bindIdcardInput' />
+        </view>
+        <view class="weui-cell__ft">
+          <view class="weui-vcode-btn"  bindtap="doIdCardIdentify">
+              <i class='fa fa-camera'></i>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">车牌号码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入车牌号码" value="{{carNo}}" bindinput='bindCarNoInput' />
+        </view>
+      </view>    
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">手机号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入手机号码" value="{{phoneNo}}" bindinput='bindPhoneNoInput' />
+        </view>
+      </view>
+
+    </view>
+    <view class="weui-btn-area">
+      <button wx:if="{{id == ''}}" class="weui-btn" type="primary" data-url='/pages/Insurance/Insurance' bindtap="navigateToCarInfo">下一步</button>
+
+      <button wx:else class="weui-btn" type="primary" bindtap="editCarInfo">保存</button>
+    </view>
+  </view>
+</view>

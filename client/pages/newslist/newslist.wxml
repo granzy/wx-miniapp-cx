@@ -1,0 +1,35 @@
+<!--pages/newslist/newslist.wxml-->
+<view class='page'>
+  <view class="page__bd">
+
+    <template name="newsTemp">
+      <view class="weui-panel__bd">
+        <navigator url="/pages/newsDetail/newsDetail?id={{id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{previewimage}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{title}}</view>
+            <view class="weui-media-box__desc">{{content}}</view>
+          </view>
+        </navigator>
+      </view>
+    </template>
+
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">保险资讯列表</view>
+      <view wx:for-items="{{newsList}}" wx:key="{{item.id}}">
+        <view class="kind-list__item">
+          <!--用is 使用模版-->
+          <template is="newsTemp" data="{{...item}}" />
+        </view>
+      </view>
+    </view>
+    <view>
+      <loading hidden="{{hidden}}" bindchange="loadingChange">
+        加载中...
+      </loading>
+    </view>
+
+  </view>
+</view>

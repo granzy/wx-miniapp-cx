@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<import src="../common/circle/circle.wxml" />
+<import src='../common/cell/cell' />
+<view class="container page-user">
+  <view class="userinfo">
+    <block>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class='kind-container'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/myquote/myquote'>
+      <template is="circle" data="{{iconClass:'fa fa-address-card-o fa-lg',title:'我的询价'}}" />
+    </navigator>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/mycarlist/mycarlist'>
+      <template is="circle" data="{{iconClass:'fa fa-car fa-lg',title:'我的车辆'}}" />
+    </navigator>
+  </view>
+
+  <view class='row-list'>
+    <button class='contactBtn' open-type='share' hover-class='none'>
+      <template is='row-cell' data='{{iconPath:"/image/user_share_icon.png",title:"分享给朋友"}}' />
+    </button>
+    
+    <button class='contactBtn' open-type='contact' hover-class='none'>
+      <template is='row-cell' data='{{iconPath:"/image/feedback_icon.png",title:"客服反馈"}}' />
+    </button>
+  
+  </view>
+
+</view>

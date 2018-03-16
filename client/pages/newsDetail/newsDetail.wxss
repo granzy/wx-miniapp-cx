@@ -1,0 +1,5 @@
+/* pages/newsDetail/newsDetail.wxss */
+.page__bd__title{
+  padding-left: 40px;
+  padding-top:30px;
+}
